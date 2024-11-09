@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.homework_6.databinding.FragmentCrimeDetailBinding
 import java.util.*
 
-class CrimeDetailFragment1 : Fragment() {
+class CrimeDetailFragment : Fragment() {
 
     private var _binding: FragmentCrimeDetailBinding? = null
     private val binding
@@ -17,7 +17,7 @@ class CrimeDetailFragment1 : Fragment() {
             "Cannot access binding because it is null. Is the view visible?"
         }
 
-    private lateinit var crime: Crime
+    lateinit var crime: Crime
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

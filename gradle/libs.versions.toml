@@ -24,7 +24,11 @@ activityKtx = "1.9.1"
 junitJupiterVersion = "5.8.1"
 runner = "1.6.2"
 espressoCoreVersion = "3.6.1"
-fragment = "1.8.2"
+fragment = "1.8.5"
+fragmentTesting = "1.8.5"
+testMonitor = "1.7.2"
+junitKtx = "1.2.1"
+fragmentTestingVersion = "1.8.5"
 
 [libraries]
 androidx-appcompat-v161 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
@@ -50,6 +54,8 @@ androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-view
 jupiter-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junitJupiterVersion" }
 androidx-espresso-core-v361 = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCoreVersion" }
 androidx-runner = { module = "androidx.test:runner", version.ref = "runner" }
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
+androidx-fragment-testing = { group = "androidx.fragment", name = "fragment-testing", version.ref = "fragmentTestingVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -36,6 +36,10 @@ android {
             jvmTarget = "17"
         }
     }
+    packaging {
+        resources {
+            excludes += "META-INF/*"
+        }
 
     dependencies {
 
@@ -59,4 +63,9 @@ android {
         implementation(libs.material)
         implementation(libs.androidx.activity)
         implementation(libs.androidx.constraintlayout)
-    }}
+    }}}
+dependencies {
+    implementation(libs.androidx.espresso.core.v351)
+    implementation(libs.androidx.junit.ktx)
+    implementation(libs.androidx.fragment.testing)
+}
