@@ -1,13 +1,14 @@
 package com.example.homework_6
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homework_6.databinding.ItemListCrimeBinding
 import com.example.homework_6.databinding.ItemListSeriousCrimeBinding
 
-class NormalCrimeHolder(private val binding: ItemListCrimeBinding) : RecyclerView.ViewHolder(binding.root) {
+class CrimeHolder(private val binding: ItemListCrimeBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(crime: Crime) {
         binding.crimeTitle.text = crime.title
         binding.crimeDate.text = crime.date.toString()
@@ -19,65 +20,26 @@ class NormalCrimeHolder(private val binding: ItemListCrimeBinding) : RecyclerVie
                 Toast.LENGTH_SHORT
             ).show()
         }
+        binding.crimeSolved.visibility = if (crime.isSolved) {
+            View.VISIBLE
+        } else {
+            View.GONE
+
     }
 }
 
-class SeriousCrimeHolder(private val binding: ItemListSeriousCrimeBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(crime: Crime) {
-        binding.crimeTitle.text = crime.title
-        binding.crimeDate.text = crime.date.toString()
+    class CrimeListAdapter(private val crimes: List<Crime>) : RecyclerView.Adapter<CrimeHolder>() {
 
-        binding.root.setOnClickListener {
-            Toast.makeText(
-                binding.root.context,
-                "${crime.title} clicked!",
-                Toast.LENGTH_SHORT
-            ).show()
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CrimeHolder {
+            val inflater = LayoutInflater.from(parent.context)
+            val binding = ItemListCrimeBinding.inflate(inflater, parent, false)
+            return CrimeHolder(binding)
         }
 
-        binding.contactPoliceButton.setOnClickListener {
-            Toast.makeText(
-                binding.root.context,
-                "Police contacted!",
-                Toast.LENGTH_SHORT
-            ).show()
+        override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
+            val crime = crimes[position]
+            holder.bind(crime)
         }
-    }
-}
 
-class CrimeListAdapter(private val crimes: List<Crime>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-    companion object {
-        private const val VIEW_TYPE_NORMAL = 0
-        private const val VIEW_TYPE_SERIOUS = 1
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        return if (crimes[position].requirePolice) VIEW_TYPE_SERIOUS else VIEW_TYPE_NORMAL
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
-            VIEW_TYPE_SERIOUS -> {
-                val inflater = LayoutInflater.from(parent.context)
-                val view = ItemListSeriousCrimeBinding.inflate(inflater, parent, false)
-                SeriousCrimeHolder(view)
-            }
-            else -> {
-                val inflater = LayoutInflater.from(parent.context)
-                val view = ItemListCrimeBinding.inflate(inflater, parent, false)
-                NormalCrimeHolder(view)
-            }
-        }
-    }
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val crime = crimes[position]
-        when (holder) {
-            is SeriousCrimeHolder -> holder.bind(crime)
-            is NormalCrimeHolder -> holder.bind(crime)
-        }
-    }
-
-    override fun getItemCount() = crimes.size
-}
+        override fun getItemCount() = crimes.size
+    }}
