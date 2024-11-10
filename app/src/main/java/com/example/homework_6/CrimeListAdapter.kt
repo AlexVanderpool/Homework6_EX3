@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homework_6.databinding.ItemListCrimeBinding
-import com.example.homework_6.databinding.ItemListSeriousCrimeBinding
+import android.text.format.DateFormat
 
 class CrimeHolder(private val binding: ItemListCrimeBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(crime: Crime) {
         binding.crimeTitle.text = crime.title
-        binding.crimeDate.text = crime.date.toString()
+        binding.crimeDate.text = DateFormat.format("MMMM dd, yyyy", crime.date).toString()
 
         binding.root.setOnClickListener {
             Toast.makeText(
