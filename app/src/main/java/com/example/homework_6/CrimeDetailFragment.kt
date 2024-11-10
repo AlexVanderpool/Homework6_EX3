@@ -18,7 +18,7 @@ class CrimeDetailFragment : Fragment() {
             "Cannot access binding because it is null. Is the view visible?"
         }
 
-    lateinit var crime: Crime
+    private lateinit var crime: Crime
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

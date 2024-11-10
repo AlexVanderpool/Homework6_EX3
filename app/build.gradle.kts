@@ -63,10 +63,9 @@ android {
         implementation(libs.material)
         implementation(libs.androidx.activity)
         implementation(libs.androidx.constraintlayout)
-    }}}
-dependencies {
-    implementation(libs.androidx.espresso.core.v351)
-    implementation(libs.androidx.junit.ktx)
-    implementation(libs.androidx.fragment.testing)
-    debugImplementation (libs.androidx.fragment.testing)
-}
+        implementation(libs.androidx.espresso.core.v351)
+        implementation(libs.androidx.junit.ktx)
+        implementation(libs.androidx.fragment.testing)
+        debugImplementation(libs.androidx.fragment.testing)
+    }
+}}

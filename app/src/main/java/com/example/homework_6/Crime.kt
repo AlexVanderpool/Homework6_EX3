@@ -6,6 +6,7 @@ data class Crime(
     val id: UUID,
     var title: String,
     val date: Date,
-    var isSolved: Boolean
+    var isSolved: Boolean,
+    var requirePolice : Boolean = false
 
 )
