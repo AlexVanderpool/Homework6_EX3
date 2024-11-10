@@ -7,4 +7,5 @@ data class Crime(
     var title: String,
     val date: Date,
     var isSolved: Boolean
+
 )

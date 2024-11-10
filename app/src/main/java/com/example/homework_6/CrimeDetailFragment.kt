@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.homework_6.databinding.FragmentCrimeDetailBinding
 import java.util.*
 
+
 class CrimeDetailFragment : Fragment() {
 
     private var _binding: FragmentCrimeDetailBinding? = null
